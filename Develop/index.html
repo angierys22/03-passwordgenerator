@@ -1,0 +1,57 @@
+<!DOCTYPE HTML> 
+<html> 
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Password Generator</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+<body> 
+	<!-- header and text box -->
+    <div class="wrapper">
+		<header>
+		  <h1>Password Generator</h1>
+		</header>
+		<div class="card">
+		  <div class="card-header">
+			<h2>Generate a Password</h2>
+		  </div>
+		  <div class="card-body">
+			<textarea
+			  readonly
+			  id="generate"
+			  placeholder="Your Secure Password"
+			></textarea>
+		  </div>
+	<!-- CTA -->
+	<button onclick="pwd_btn()"> 
+Generate Password
+	</button> 
+<!-- javascript -->
+	<script> 
+		var password = document.getElementById("generate"); 
+
+		/* Function to generate combination of password */ 
+		function generateP() { 
+			var pass = ''; 
+			var passwordText = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + '!#$%&()*+,-./:;<=>?@[\]^_`{|}~' +
+					'abcdefghijklmnopqrstuvwxyz0123456789'; 
+			
+			for (i = 1; i <= 8; i++) { 
+				var char = Math.floor(Math.random() 
+							* passwordText.length + 1); 
+				
+				pass += passwordText.charAt(char) 
+			} 
+			
+			return pass; 
+		} 
+
+		function pwd_btn() { 
+			password.innerHTML = generateP(); 
+		} 
+	</script> 
+</body> 
+
+</html> 
